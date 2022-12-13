@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube Angularjs</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js" 
+    integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap-grid.min.css" 
+    integrity="sha512-JQksK36WdRekVrvdxNyV3B0Q1huqbTkIQNbz1dlcFVgNynEMRl0F8OSqOGdVppLUDIvsOejhr/W5L3G/b3J+8w==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>  
+    <section ng-app="youtubeApp" ng-controller="mainController as main">
+        <div class="container">
+            <h2 ng-bind="main.message"></h2>
+            <div class="youtube-thumbnail" ng-repeat="vid in main.videoListing">
+                <a ng-href="http://www.youtube.com/watch?v={{vid.id.videoId}}" target="_blank"></a>
+                    <img ng-src="{{vid.snippet.thumbnails.medium.url}}" alt="">
+                    <p ng-bind="vid.snippet.title"></p>
+            </div>
+        </div>
+    </section>
+    <script src="data.js"></script>
+</body>
+</html>
